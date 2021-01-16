@@ -23,33 +23,24 @@ var wDividedByH = weight/heightSquared
 
 var result = 703 * wDividedByH
 var resultRounded = Math.round(result)
-// console.log({resultRounded})
-
-// if (resultRounded < 18.5){
-//   var underweight = "You are underweight, please eat more!"
-// } else if (resultRounded >= 18.5 && resultRounded < 25){
-//   var normal = "Everything is looking good, keep it up!"
-// } else if (resultRounded >= 25 && resultRounded <= 30){
-//   var overweight = "Hit the treadmill more often my man!"
-// } else if (resultRounded > 30){
-//   var obese = "The treadmill can't help you."
-// }
 
 var remark = ""
-
+var weightLevel = ""
 if (resultRounded < 18.5){
-  remark = "You are underweight"
+  weightLevel = "You are underweight!"
+  remark = "Eat more!"
 } else if (resultRounded >= 18.5 && resultRounded < 25){
+  weightLevel = ""
   remark = "Everything is looking good, keep it up!"
 } else if (resultRounded >= 25 && resultRounded <= 30){
+  weightLevel = "You are overweight!"
   remark = "Hit the treadmill more often my man!"
 } else if (resultRounded > 30){
+  weightLevel = "You are obese!"
   remark = "Even the treadmill can't help you."
 }
 
-
-
-  res.send("Your BMI results is: " + resultRounded + ".        " + remark );
+  res.send("Your BMI results is: " + resultRounded + ". " + weightLevel + " " + remark );
 });
 
 app.listen(3000, function() {
